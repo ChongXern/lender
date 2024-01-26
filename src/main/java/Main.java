@@ -3,12 +3,14 @@ public class Main {
     static String[] borrowers = new String[100];
     static boolean[] isPaid = new boolean[100];
     static double[] interestRates = new double[100];
+    static String[] contactNumbers = new String[100];
     static int loansCount = 0;
 
-    public static void addLoan(String borrower, int amount, double interestRate) {
+    public static void addLoan(String borrower, int amount, double interestRate, String contactNumber) {
         borrowers[loansCount] = borrower;
         amounts[loansCount] = amount;
         interestRates[loansCount] = interestRate;
+        contactNumbers[loansCount] = contactNumber;
         loansCount++;
     }
 
@@ -40,11 +42,14 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        addLoan("Alice Betsy", 100, 0.1);
-        addLoan("Ben Chee", 50, 0.2);
-        addLoan("Chris Davis", 30, 0.3);
-        setAsPaid("Ben Chee");
+        addLoan("Alice Betsy", 100, 0.1, "48201200");
+        addLoan("Ben Che", 50, 0.2, "83911182");
+        addLoan("Chris Davis", 30, 0.3, "84928466");
+        setAsPaid("Ben Che");
         listLoans();
         System.out.println("profit: " + calculateProfitEarned());
+
+        Loan newLoan = new Loan("Alice Betsy", 100, 0.1, "2"); // Java automatically creates constructor
+
     }
 }
